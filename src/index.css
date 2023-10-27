@@ -1,0 +1,31 @@
+body{
+    background-color: gray;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.joinContainer{
+
+    height: 600px;
+    width: 400px;
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.canvas{
+    /* border: solid; */
+    /* height: 600px; */
+    /* width: 400px; */
+}
+.canvas-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
