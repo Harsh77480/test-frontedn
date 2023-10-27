@@ -73,7 +73,7 @@ export function Login(){
             margin="normal"
           />
           <Button variant="contained" color="primary" type="submit">
-            Submit
+            Login
           </Button>
           
         </form>
