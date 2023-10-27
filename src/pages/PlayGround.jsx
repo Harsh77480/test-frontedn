@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { Socket, io } from 'socket.io-client';
+import { io } from 'socket.io-client';
 import { useLocation } from "react-router-dom";
-import DrawingCanvas from "../components/CanvasComponent";
+import DrawingCanvas from "../components/DrawingCanvas";
 // var socket;
 // socket = io('http://localhost:3000',{
 //     query: {

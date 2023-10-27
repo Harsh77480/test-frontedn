@@ -9,11 +9,11 @@
     server: {
         proxy: {
           '/user' : {
-            target : 'https://api-fb6o.onrender.com'
+            target : 'http://localhost:3000'
           },
 
           '/playground' : {
-            target : 'https://api-fb6o.onrender.com'
+            target : 'http://localhost:3000'
           }
 
 

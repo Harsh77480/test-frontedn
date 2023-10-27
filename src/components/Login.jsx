@@ -25,16 +25,21 @@ export function Login(){
             headers : {
               "Content-type" : "application/json",
             },
+            
           };
 
-          const {data} = await axios.post('/user/login',{email,password},config);
+          const {data} = await axios.post('https://api-fb6o.onrender.com/user/login',{email,password},config);
           localStorage.setItem("userInfo", JSON.stringify(data));
           navigate("/join");
-
+          console.log(data);
         }catch(err){  
-          
-          const message = err.response.data.message;
-          setError((message)?(message):'');
+          if(err.response){
+            console.log(err);
+            const message = err.response.data.message;
+            setError((message)?(message):'');
+          }else{
+            console.log(err);
+          }
 
         }
       }
