@@ -7,8 +7,3 @@ status = 200
 from = "/join"
 to = "/index.html"
 status = 200
-
-[[redirects]]
-from = "/api/*"
-to = "https://api-fb6o.onrender.com"
-status = 200

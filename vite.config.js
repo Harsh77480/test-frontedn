@@ -4,17 +4,13 @@
   // https://vitejs.dev/config/
   export default defineConfig({
     plugins: [react()],
-
+    // https://api-fb6o.onrender.com
 
     server: {
         proxy: {
-          '/user' : {
-            target : 'http://localhost:3000'
+          '/x' : {
+            target : 'http://localhost:3000/'
           },
-
-          '/playground' : {
-            target : 'http://localhost:3000'
-          }
 
 
         },

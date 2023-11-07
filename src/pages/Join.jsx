@@ -18,16 +18,24 @@ export function Join(){
         navigation('/play',{ state: { 'code': '' } });
     }
 
-    return <div className="joinContainer">
-        {/* <Chat/> */}
-        <div>
-        <input className="" type="number" onChange={(e)=>{setGameCode(e.target.value)}}  ></input>
-        <button onClick={enterGameHandler} >Join A Game</button>
-        </div>
-        
-        
-        <button onClick={createGameHandler}>Create A Game</button>
+    return <div className="joinPage">
+        <div className="joinContainer">
+            {/* <Chat/> */}
+            <div className="center">
+            <input style={{margin : '5px'}} className="input-field" placeholder="Enter Game Code" type="number" onChange={(e)=>{setGameCode(e.target.value)}}  ></input>
+            <button onClick={enterGameHandler} className="btn">Join This Game</button>
+            </div>
 
+
+            <button onClick={createGameHandler} className="btn" >Create A Game</button>
+
+            <div style={{width : '90%'}}>
+            <p>Create/Join game with different devices or use incognito tabs if using same device</p>
+            <p>Try using similar screen size devices and updated chrome browser</p>
+            
+            </div>
+
+        </div>
     </div>
 }
 
