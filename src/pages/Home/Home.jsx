@@ -1,6 +1,6 @@
 import {useRef, useEffect ,useState } from "react"
 import axios from "axios";
-import { Chat } from "../chat";
+// import { Chat } from "../chat";
 import { io } from 'socket.io-client';
 import { useNavigate } from "react-router-dom";
 import './Home.css'
