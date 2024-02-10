@@ -4,11 +4,17 @@ import axios from "axios";
 import { io } from 'socket.io-client';
 import { useNavigate } from "react-router-dom";
 import './Home.css'
+import { Card } from "../../components/Card/Card";
 export function Home(){
 
-    const intersectionRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
+    const upperIntersectionRef = useRef(null); 
+    const [upperText, setUpperText] = useState("");
+    const lowerIntersectionRef = useRef(null); 
+    const [lowerText, setLowerText] = useState("");
+    const imageIntersectionRef = useRef(null); 
+    const [image, setImage] = useState("");
   
+
     useEffect(() => {
 
           const d = async()=>{
@@ -19,36 +25,65 @@ export function Home(){
       
 
 
-      const observer = new IntersectionObserver((entries) => {
+      const upperObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           // If target element is intersecting with viewport
           if (entry.isIntersecting) {
-            setIsVisible(true);
+            setUpperText("upper-twelve");
             // Stop observing after it becomes visible
-            observer.unobserve(entry.target);
+            upperObserver.unobserve(entry.target);
           }
+        });
+      });
+
+      const lowerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          // If target element is intersecting with viewport
+          if (entry.isIntersecting) {
+            setLowerText("lower-twelve");
+            // Stop observing after it becomes visible
+            lowerObserver.unobserve(entry.target);
+          }
+        });
+      });
+
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          // If target element is intersecting with viewport
+          if (entry.isIntersecting) {
+            setTimeout(()=>{ setImage("img"); },1000);
+          }else{
+            setTimeout(()=>{ setImage(""); },1000);
+          }
+
         });
       });
   
       // Start observing the target element
-      observer.observe(intersectionRef.current);
+      upperObserver.observe(upperIntersectionRef.current);
+      lowerObserver.observe(lowerIntersectionRef.current);
+      imageObserver.observe(imageIntersectionRef.current);
   
-      // Cleanup function to disconnect the observer
+      // Cleanup function to disconnect the upperObserver
       return () => {
-        observer.disconnect();
+        upperObserver.disconnect();
+        lowerObserver.disconnect();
+        imageObserver.disconnect();
       };
     }, []); // Only run once on mount
 
 
     return <div className="container">
-        <p ref={intersectionRef}  className={`upper-twelve-default ${isVisible ? "upper-twelve" : ""} `} > 50% discount </p>
+        <p ref={upperIntersectionRef}  className={`upper-twelve-default ${upperText} `} > 50% discount </p>
         <div className="default-wrapper">
-          <div className="default"></div>
+          <div ref={imageIntersectionRef}  className={`default ${image}`}></div>
         </div>
-        <p className="lower-twelve-default ">Shirts </p>
+        <p  ref={lowerIntersectionRef} className={`lower-twelve-default ${lowerText} `}>Shirts </p>
+          {/* <Card/> */}
+          {/* <div ref={cardIntersectionRef} className={`card ${card}`} ></div>   */}
         <div className="cards">
-          <div className="card"></div>  
-          <div className="card"></div>  
+          <Card  />
+          <Card  />
         </div>
       </div>
 }

@@ -10,6 +10,13 @@ function App() {
 
   return (
     <>
+    <div id="navbar" className="sticky">
+        <div>
+        Fair Fashion
+        </div>
+      </div>
+    <div className='category-container'>
+
       {/* <SignUp/> */}
       <Home/>
       <Home/>
@@ -17,6 +24,8 @@ function App() {
       <Home/>
       <Home/>
       {/* <Chat/> */}
+    </div>
+    
     </>
   )
 }
