@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Great+Vibes&family=Lobster&family=Protest+Revolution&family=Rowdies:wght@300;400;700&family=Rubik+Glitch+Pop&family=Workbench:SCAN@8&display=swap");
+
+
+.filter-container{
+    /* color: aliceblue; */
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    /* border: solid; */
+    height: 250px;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+
+}
+.filter-label{
+    /* color: aqua; */
+    /* border: solid; */
+    
+
+    display: flex;align-items: center;justify-content: center;
+    margin: 0 10px; 
+    font-family: 'Courier New', Courier, monospace;
+}
+.filter-key-label{
+    /* border: 1px red solid; */
+    overflow-x: scroll;
+    display: flex;
+    height: 25px;
+    /* justify-content: center; */
+    width: 220px;
+    margin: 15px 0;
+    scrollbar-width: none;
+    margin-left: 15px;
+    /* als */
+}
+
+.filter-key-label::-webkit-scrollbar {
+    display: none;
+  }
+
+.filter-head{
+    /* border: solid; */
+    font-size: 12px;
+    margin: 10px 0;
+    display: flex;
+    /* width: 250px; */
+    /* justify-content: center; */
+    /* flex-direction: column ; */
+    align-items: center;
+}
+

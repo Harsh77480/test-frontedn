@@ -21,7 +21,7 @@ export function Card(){
           }
 
         });
-      },{threshold:0.6})
+      },{threshold:0.3})
   
       cardObserver.observe(cardIntersectionRef.current);
   

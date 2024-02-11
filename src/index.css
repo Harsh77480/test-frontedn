@@ -4,11 +4,11 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
+} */
 
-.gameMessage{
+/* .gameMessage{
     color: rgb(75, 126, 128);
-}
+} */
 
 .input-field{
     height: 37px;
@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center
 }
-.joinPage{
+/* .joinPage{
     height: 100vh;
     display: flex;
     align-items: center;
@@ -73,7 +73,7 @@
   h1, h2 {
     color: #333333;
   }
-  
+   */
   .btn {
     font: inherit;
     padding: 0.5rem 1.5rem;
@@ -100,7 +100,7 @@
     background-color: #f8dae9;
   }
   
-  .card {
+  /* .card {
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -108,7 +108,7 @@
     width: clamp(300px,70%,800px);
     margin: 5px 0;
     
-  } 
+  }  */
   .modal {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
@@ -150,15 +150,15 @@
   }
   
   
-  .search-container {
+  /* .search-container {
     display: flex;
     width: 80%;
     justify-content: center;
     margin-bottom: 20px;
-  }
+  } */
   
   .filters{
     width: 50%; margin-top: 12px;
   }
   
-   */
+  
