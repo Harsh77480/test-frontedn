@@ -7,3 +7,9 @@ status = 200
 from = "/join"
 to = "/index.html"
 status = 200
+
+
+[[redirects]]
+from = "/items_list"
+to = "/index.html"
+status = 200
