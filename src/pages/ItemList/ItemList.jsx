@@ -38,8 +38,8 @@ export function ItemList(){
        
        <div id="bottombar" className="bottom-sticky">
         <div className="bottombarbox">
-            <div className="bottombarbox-children-1">Filter</div>
-            <div className="bottombarbox-children-2">Sort</div>
+            <div className="bottombarbox-children-1 hoverchange">Filter</div>
+            <div className="bottombarbox-children-2 hoverchange">Sort</div>
         </div>
        </div>
 

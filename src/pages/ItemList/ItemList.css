@@ -62,9 +62,23 @@
   }
   .bottombarbox-children-1{
     /* border-left: 1px solid; */
+    /* border: solid; */
+    width: 50%;
+    height: 60px;
+    display: flex;align-items: center;justify-content: center;
+  }
+  .bottombarbox-children-2{
+    border-left: 1px solid;
+    /* border: solid; */
+    width: 50%;
+    height: 60px;
+    display: flex;align-items: center;justify-content: center;
   }
   
-  
+  .hoverchange:hover {
+    background-color: #f2f2f2;
+    color: black;
+  }
   /* bottombar links */
   #bottombar a {
     float: left;
