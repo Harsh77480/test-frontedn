@@ -8,7 +8,7 @@ export default function SortModal({setSortModal,setItemList,sortList,setSortList
 
     
     const applyFilters = async() =>{
-     const data = await axios.get(`http://127.0.0.1:8000/api/items/${filterParamString}${sortParamString}`);
+     const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${filterParamString}${sortParamString}`);
      console.log(data)
      setItemList(data.data.items_list)
      setSortList(data.data.sort_data);

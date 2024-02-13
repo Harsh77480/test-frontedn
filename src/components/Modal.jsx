@@ -28,7 +28,7 @@ export default function Modal({setFilterModal,filterList,setItemList,setFilterLi
     
     
     const applyFilters = async() =>{
-      const data = await axios.get(`http://127.0.0.1:8000/api/items/${filterParamString}${sortParamString}`);
+      const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${filterParamString}${sortParamString}`);
       console.log(filterParamString+sortParamString)
       // console.log()
       setItemList(data.data.items_list)

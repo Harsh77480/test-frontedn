@@ -24,7 +24,7 @@ export function ItemList(){
 
     useEffect(()=>{
         const d = async()=>{
-            const data = await axios.get('http://127.0.0.1:8000/api/items/');
+            const data = await axios.get('https://ecom-lszh.onrender.com/api/items/');
                 console.log(data.data);
                 setFilterList(data.data.filter_data);
                 setSortList(data.data.sort_data)
