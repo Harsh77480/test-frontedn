@@ -40,7 +40,7 @@
     
     .card-image{
       /* border: 1px solid; */
-      background-image: url('Unbound-Merino-Cewneck-T-Shirt.webp');
+      /* background-image: url('Unbound-Merino-Cewneck-T-Shirt.webp'); */
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
@@ -75,8 +75,11 @@
       /* padding: 6px; */
     }
     
+
+
     .original-price-value{
       width: fit-content;
+      /* border: 1px solid; */
     }
     
     .original-price-value-cross{
@@ -97,15 +100,22 @@
   }
   .price{
     /* width: ; */
-    padding: 5px 10px;
+    padding: 5px 0;
     /* border: solid .5px; */
     color: green;
     font-size: 12px;
     display: flex;
     /* flex-wrap: wrap; */
     justify-content:space-evenly;
+    align-items: center;
   }
   
   .dicount-percent{
     color: red;
+    /* border: 1px solid; */
+    display: flex;justify-content: center;align-items: center;
+  }
+  .discount-off{
+    /* color: aqua; */
+    font-size: 10px;
   }

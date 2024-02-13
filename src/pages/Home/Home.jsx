@@ -17,11 +17,7 @@ export function Home(){
 
     useEffect(() => {
 
-          const d = async()=>{
-        const credentials = JSON.parse(localStorage.getItem('userInfo'));
-        const data = await axios.get('http://127.0.0.1:8000/api/items/');
-            console.log(data);}   
-        d();
+          
       
 
 

@@ -1,6 +1,6 @@
 
 import { Button, TextField , Snackbar, Backdrop} from "@mui/material"
-import { useState  } from "react";
+import { useEffect, useState  } from "react";
 import axios from 'axios';
 import { Route, useNavigate } from "react-router-dom";
 import { Card } from "../../components/Card/Card";
@@ -12,6 +12,21 @@ import BackDrop from "../../components/BackDrop";
 export function ItemList(){
 
     const [filterModal,setFilterModal] = useState(false)
+    const [sortModal,setSortModal] = useState(false)
+    const [filterList,setFilterList] = useState({})
+    const [itemList,setItemList] = useState([])
+
+    useEffect(()=>{
+        const d = async()=>{
+            const data = await axios.get('https://ecom-lszh.onrender.com/api/items/');
+                console.log(data.data);
+                setFilterList(data.data.filter_data);
+                setItemList(data.data.items_list)
+            }   
+            d();
+            // setFilterList()
+    },[])
+
 
     
       return (
@@ -23,10 +38,12 @@ export function ItemList(){
     { filterModal ?
     <>
     <BackDrop/>
-    <Modal message={"lsdfjklsfj"} setFilterModal={setFilterModal} />
+    <Modal setItemList={setItemList} filterList={filterList} setFilterModal={setFilterModal} setFilterList={setFilterList} />
     </>
 
-    : <></> } 
+    :  
+
+    <></> } 
 
     <div className="container" >
         
@@ -39,18 +56,9 @@ export function ItemList(){
 
 
             <div className="cards" style={{marginTop:'45px'}}>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                {itemList.map((item)=>(
+                    <Card item = {item} />
+                ))}
             </div>
        
        <div id="bottombar" className="bottom-sticky">
