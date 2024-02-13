@@ -6,22 +6,30 @@ import { Route, useNavigate } from "react-router-dom";
 import { Card } from "../../components/Card/Card";
 import './ItemList.css'
 
+import SortModal from "../../components/SortModal"
 import Modal from "../../components/Modal";
 import BackDrop from "../../components/BackDrop";
 
 export function ItemList(){
 
     const [filterModal,setFilterModal] = useState(false)
-    const [sortModal,setSortModal] = useState(false)
     const [filterList,setFilterList] = useState({})
+    const [sortModal,setSortModal] = useState(false)
+    const [sortList,setSortList] = useState({})
+
     const [itemList,setItemList] = useState([])
+    const [filterParamString,setFilterParamString] = useState("?")
+    const [sortParamString,setSortParamString] = useState("sort_type=Newest")
+    
 
     useEffect(()=>{
         const d = async()=>{
-            const data = await axios.get('https://ecom-lszh.onrender.com/api/items/');
+            const data = await axios.get('http://127.0.0.1:8000/api/items/');
                 console.log(data.data);
                 setFilterList(data.data.filter_data);
+                setSortList(data.data.sort_data)
                 setItemList(data.data.items_list)
+            
             }   
             d();
             // setFilterList()
@@ -36,14 +44,26 @@ export function ItemList(){
     {/* {errorMessage ? <Modal message={errorMessage} /> : <></> }
     {errorMessage ? <Backdrop /> : <></> } */}
     { filterModal ?
+    
     <>
     <BackDrop/>
-    <Modal setItemList={setItemList} filterList={filterList} setFilterModal={setFilterModal} setFilterList={setFilterList} />
+    <Modal sortParamString={sortParamString} filterParamString={filterParamString} setFilterParamString={setFilterParamString}  setItemList={setItemList} filterList={filterList} setFilterModal={setFilterModal} setFilterList={setFilterList} setSortList={setSortList} />
     </>
 
     :  
+    <></> }
 
-    <></> } 
+   {
+
+    sortModal ?
+    <>
+    <BackDrop/>
+    <SortModal filterParamString={filterParamString} sortParamString={sortParamString} setSortParamString={setSortParamString} setItemList={setItemList} sortList={sortList}  setSortList={setSortList} setSortModal={setSortModal} setFilterList={setFilterList} />
+    </> :
+
+    <></> 
+
+   }
 
     <div className="container" >
         
@@ -63,11 +83,12 @@ export function ItemList(){
        
        <div id="bottombar" className="bottom-sticky">
         <div className="bottombarbox">
-            <div className="bottombarbox-children-1 hoverchange" onClick={()=>setFilterModal(true)}>Filter</div>
-            <div className="bottombarbox-children-2 hoverchange">Sort</div>
+            <div className="bottombarbox-children-1 hoverchange" onClick={()=>  {setSortModal(false);setFilterModal(true)} } >Filter</div>
+            <div className="bottombarbox-children-2 hoverchange" onClick={()=> {setFilterModal(false);setSortModal(true)} } >Sort</div>
         </div>
        </div>
 
+       
         </div>
 
         </> 

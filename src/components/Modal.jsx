@@ -1,36 +1,45 @@
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import './Modal.css'
+import { useEffect } from "react";
 
-export default function Modal({setFilterModal,filterList,setItemList,setFilterList}){ //here a function is passed as props
+export default function Modal({setFilterModal,filterList,setItemList,setFilterList,filterParamString,setFilterParamString,sortParamString,setSortList}){ //here a function is passed as props
   
-  let paramString = "?"
+  
   const removeElement = (list,element) =>{for(let i = 0;i<list.length;i++){if(list[i] == element){list.splice(i,1)}}}
   const createParamString = (obj) =>{
-    paramString = "?"
+    let paramString = "?"
     Object.keys(obj).map(key=>{
       if(obj[key].length){
         obj[key].forEach(i=>{paramString += `${key}=${i}&`})
-      }})}
-
-  let params = {
-   color_filter : "red",
-  }
+      }})
+      setFilterParamString(paramString)
+    }
+    
+    let params = {
+    }
     Object.keys(filterList).map((key)=>{
       params[key] = [];
       filterList[key].map(element => {
         if (element.is_applied)
-          {params[key].push(element['title'])}
+        {params[key].push(element['title'])}
       });
     })
     
     
     const applyFilters = async() =>{
-     const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${paramString}`);
-     console.log(data)
-     setItemList(data.data.items_list)
-     setFilterList(data.data.filter_data);
+      const data = await axios.get(`http://127.0.0.1:8000/api/items/${filterParamString}${sortParamString}`);
+      console.log(filterParamString+sortParamString)
+      // console.log()
+      setItemList(data.data.items_list)
+      setFilterList(data.data.filter_data);
+      setSortList(data.data.sort_data)
     }
+    
+    useEffect(()=>{
+      applyFilters()
+  
+    },[filterParamString])
 
 
 
@@ -45,9 +54,8 @@ export default function Modal({setFilterModal,filterList,setItemList,setFilterLi
       console.log(params,'updated params')
 
       createParamString(params)
-      console.log(paramString)
-
-      applyFilters()
+      // console.log(filterParamString,sortString,"all_params")
+      // applyFilters()
 
    }
    
