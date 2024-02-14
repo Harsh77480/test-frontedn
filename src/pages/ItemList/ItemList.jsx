@@ -33,7 +33,10 @@ export function ItemList(){
 
             setLoading(true)
             const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${category_id}/`);
-            setLoading(false)
+
+            setTimeout(()=>{
+                setLoading(false)
+            },3000)
 
                 console.log(data.data);
                 setFilterList(data.data.filter_data);

@@ -23,7 +23,7 @@ function App() {
       
       setTimeout(()=>{
         setLoading(false)
-      },1000)
+      },3000)
 
           console.log(data.data);
           setCategoryList(data.data['categories_list'])
