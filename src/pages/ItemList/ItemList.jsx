@@ -2,15 +2,18 @@
 import { Button, TextField , Snackbar, Backdrop} from "@mui/material"
 import { useEffect, useState  } from "react";
 import axios from 'axios';
-import { Route, useNavigate } from "react-router-dom";
+import { Route, useLocation, useNavigate } from "react-router-dom";
 import { Card } from "../../components/Card/Card";
 import './ItemList.css'
 
 import SortModal from "../../components/SortModal"
 import Modal from "../../components/Modal";
 import BackDrop from "../../components/BackDrop";
+import { PreLoader } from "../../components/PreLoader/PreLoader";
 
 export function ItemList(){
+
+    const location = useLocation()
 
     const [filterModal,setFilterModal] = useState(false)
     const [filterList,setFilterList] = useState({})
@@ -20,11 +23,18 @@ export function ItemList(){
     const [itemList,setItemList] = useState([])
     const [filterParamString,setFilterParamString] = useState("?")
     const [sortParamString,setSortParamString] = useState("sort_type=Newest")
-    
+    const category_id = location.state.code
+
+    const [loading, setLoading] = useState(false);
+
 
     useEffect(()=>{
         const d = async()=>{
-            const data = await axios.get('https://ecom-lszh.onrender.com/api/items/');
+
+            setLoading(true)
+            const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${category_id}/`);
+            setLoading(false)
+
                 console.log(data.data);
                 setFilterList(data.data.filter_data);
                 setSortList(data.data.sort_data)
@@ -40,6 +50,10 @@ export function ItemList(){
       return (
 <>
 
+    {
+    loading ? <PreLoader/> :
+    <></>
+    }
 
     {/* {errorMessage ? <Modal message={errorMessage} /> : <></> }
     {errorMessage ? <Backdrop /> : <></> } */}
@@ -47,7 +61,7 @@ export function ItemList(){
     
     <>
     <BackDrop/>
-    <Modal sortParamString={sortParamString} filterParamString={filterParamString} setFilterParamString={setFilterParamString}  setItemList={setItemList} filterList={filterList} setFilterModal={setFilterModal} setFilterList={setFilterList} setSortList={setSortList} />
+    <Modal category_id={category_id} sortParamString={sortParamString} filterParamString={filterParamString} setFilterParamString={setFilterParamString}  setItemList={setItemList} filterList={filterList} setFilterModal={setFilterModal} setFilterList={setFilterList} setSortList={setSortList} />
     </>
 
     :  
@@ -58,7 +72,7 @@ export function ItemList(){
     sortModal ?
     <>
     <BackDrop/>
-    <SortModal filterParamString={filterParamString} sortParamString={sortParamString} setSortParamString={setSortParamString} setItemList={setItemList} sortList={sortList}  setSortList={setSortList} setSortModal={setSortModal} setFilterList={setFilterList} />
+    <SortModal category_id={category_id} filterParamString={filterParamString} sortParamString={sortParamString} setSortParamString={setSortParamString} setItemList={setItemList} sortList={sortList}  setSortList={setSortList} setSortModal={setSortModal} setFilterList={setFilterList} />
     </> :
 
     <></> 

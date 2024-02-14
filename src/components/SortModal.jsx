@@ -1,14 +1,20 @@
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import './SortModal.css'
-import { useEffect } from "react";
+import { useEffect ,useState} from "react";
+import { PreLoader } from "./PreLoader/PreLoader";
 
-export default function SortModal({setSortModal,setItemList,sortList,setSortList,filterParamString,sortParamString,setSortParamString,setFilterList}){ //here a function is passed as props
+export default function SortModal({category_id,setSortModal,setItemList,sortList,setSortList,filterParamString,sortParamString,setSortParamString,setFilterList}){ //here a function is passed as props
   
+  const [loading, setLoading] = useState(false);
 
     
     const applyFilters = async() =>{
-     const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${filterParamString}${sortParamString}`);
+    
+      setLoading(true)
+     const data = await axios.get(`https://ecom-lszh.onrender.com/api/items/${category_id}/${filterParamString}${sortParamString}`);
+      setLoading(false)
+
      console.log(data)
      setItemList(data.data.items_list)
      setSortList(data.data.sort_data);
@@ -27,7 +33,13 @@ export default function SortModal({setSortModal,setItemList,sortList,setSortList
    
 
    return <div className="modal" style={{maxWidth:'140px'}}>
-   
+   {
+
+    loading ? <PreLoader/> :
+    <></>
+    
+    }
+
    <form className="filter-container" style={{maxHeight:'180px'}}>
       
       { Object.keys(sortList).map(e=>(
@@ -57,7 +69,8 @@ export default function SortModal({setSortModal,setItemList,sortList,setSortList
 
       </form>
 
-    {/* <button className="btn btn--alt" onClick = {() => applyFilters()} >Apply</button> */}
     <button className="btn btn--alt" onClick = {() => setSortModal(false)} >Back</button>
+
+    {/* <button className="btn btn--alt" onClick = {() => applyFilters()} >Apply</button> */}
  </div>
 }

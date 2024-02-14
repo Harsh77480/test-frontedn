@@ -25,12 +25,15 @@
   
   
     .upper-twelve-default{
-      font-size: 40px;
+      background-color: #00000048;
+      font-size: 35px;
       font-weight: 600;
       text-transform: uppercase;
       font-family: 'Kanit', sans-serif;
+      /* font-style: italic; */
+      padding: 5px 10px;
   
-      transform: translateY(30px);
+      transform: translateY(25px);
       z-index: 1;
       color :  #fffafa00;
     }
@@ -51,14 +54,18 @@
     }
   
     .lower-twelve-default{
-      font-size: 40px;
+      background-color: rgba(245, 245, 245, 0.368);
+      font-size: 35px;
       font-weight: 600;
       text-transform: uppercase;
       font-family: 'Rubik', sans-serif;
       font-family: 'Kanit', sans-serif;
-      transform: translateY(-25px); 
-      z-index: 1;
+      transform: translateY(-25px) ; 
+      z-index: 1; 
+      padding: 5px 10px;
       color: #00000000;
+      /* font-style: italic; */
+      /* -webkit-transform: skew(-10deg);   */
     }
   
     .lower-twelve{
@@ -90,7 +97,7 @@
       animation-name: example2;
       animation-duration: 500ms;
       animation-timing-function: ease-in;
-      background-image: url('./istockphoto-665032164-612x612.jpg');
+      /* background-image: url('./istockphoto-665032164-612x612.jpg'); */
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -109,7 +116,7 @@
       flex-direction: column;
       margin-top: 10px;
       /* background-color: #000000; */
-      /* background-image: url('https://ecom-lszh.onrender.com/media/item_images/istockphoto-665032164-612x612.jpg'); */
+      /* background-image: url('https://ecom-lszh.onrender.com//media/item_images/istockphoto-665032164-612x612.jpg'); */
       background-size: contain;
       
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import {useRef, useEffect ,useState } from "react"
-
+import axios from 'axios'
 // import { Route } from 'react-router-dom'
 // import CanvasComponent from './components/DrawingCanvas'
 // import DrawingCanvas from './components/DrawingCanvas'
@@ -12,11 +12,25 @@ import { PreLoader } from './components/PreLoader/PreLoader';
 function App() {
 
   const [loading, setLoading] = useState(true);
+  const [categoryList,setCategoryList] = useState([])
   useEffect(() => {
     
-    setTimeout(()=>{
-      setLoading(false)
-    },1000)
+    
+
+
+    const d = async()=>{
+      const data = await axios.get('https://ecom-lszh.onrender.com/api/categories/');
+      
+      setTimeout(()=>{
+        setLoading(false)
+      },1000)
+
+          console.log(data.data);
+          setCategoryList(data.data['categories_list'])
+          // console.log(data.data['categories_list'])
+      }   
+      d();
+
 
   }, []);
 
@@ -38,11 +52,16 @@ function App() {
     <div className='category-container'>
 
       {/* <SignUp/> */}
-      <Home/>
-      <Home/>
-      <Home/>
-      <Home/>
-      <Home/>
+
+      {
+        categoryList.map((category)=>(
+
+          <Home id={category.id} title1={category.title1} title2={category.title2} category_image={category.image} items={category.items}/>
+
+        ))
+
+      }
+
       {/* <Chat/> */}
     </div>
     

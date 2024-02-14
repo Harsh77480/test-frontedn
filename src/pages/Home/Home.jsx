@@ -5,7 +5,11 @@ import { io } from 'socket.io-client';
 import { useNavigate } from "react-router-dom";
 import './Home.css'
 import { Card } from "../../components/Card/Card";
-export function Home(){
+
+
+export function Home({id,title1,title2,category_image,items}){
+  
+  const navigation = useNavigate();
 
     const upperIntersectionRef = useRef(null); 
     const [upperText, setUpperText] = useState("");
@@ -13,13 +17,18 @@ export function Home(){
     const [lowerText, setLowerText] = useState("");
     const imageIntersectionRef = useRef(null); 
     const [image, setImage] = useState("");
-  
+    const [categoryImageAdder,setCategoryImageAdder] = useState("")
+    const [opacity,setOpacity] = useState(0)
+
+    const x = { backgroundImage:
+      `url(${categoryImageAdder})` ,
+      
+      opacity:opacity
+    }
+
+
 
     useEffect(() => {
-
-          
-      
-
 
       const upperObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -48,8 +57,18 @@ export function Home(){
           // If target element is intersecting with viewport
           if (entry.isIntersecting) {
             setTimeout(()=>{ setImage("img"); },1000);
+            setCategoryImageAdder(category_image)
+            setTimeout(()=>{
+              setOpacity(1)
+            },1000)
+
           }else{
             setTimeout(()=>{ setImage(""); },1000);
+            setCategoryImageAdder("")
+            setTimeout(()=>{
+              setOpacity(0)
+            },1000)
+
           }
 
         });
@@ -69,17 +88,30 @@ export function Home(){
     }, []); // Only run once on mount
 
 
+    const handleCategoryClick = () =>{
+      navigation('/items_list',{ state: { 'code': id } });
+    }
+
+
     return <div className="container">
-        <p ref={upperIntersectionRef}  className={`upper-twelve-default ${upperText} `} > 50% discount </p>
+        <p ref={upperIntersectionRef}  className={`upper-twelve-default ${upperText} `} > {title1} </p>
         <div className="default-wrapper">
-          <div ref={imageIntersectionRef}  className={`default ${image}`}></div>
+          <div ref={imageIntersectionRef} onClick={()=>handleCategoryClick()} className={`default ${image}`} style={x} ></div>
         </div>
-        <p  ref={lowerIntersectionRef} className={`lower-twelve-default ${lowerText} `}>Shirts </p>
-          {/* <Card/> */}
-          {/* <div ref={cardIntersectionRef} className={`card ${card}`} ></div>   */}
+        <p  ref={lowerIntersectionRef} className={`lower-twelve-default ${lowerText} `}>{title2} </p>
         <div className="cards">
-          <Card  />
-          <Card  />
+          {
+            items.map((item)=>(
+              // console.log(item)
+               <Card item = {item} /> 
+              
+            ))
+          }
+          {/* <div ref={cardIntersectionRef} className={`card ${card}`} ></div>   */}
+          
+          {/* <Card  />  */}
+          {/* <Card  /> */}
+
         </div>
       </div>
 }
