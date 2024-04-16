@@ -1,15 +1,17 @@
-import React from 'react'
+import { useState } from 'react'
 import './App.css'
-import {useRef, useEffect ,useState } from "react"
+import { Route } from 'react-router-dom'
+import { Chat } from './pages/chat'
+import CanvasComponent from './components/DrawingCanvas'
+import DrawingCanvas from './components/DrawingCanvas'
+import { Login } from './components/Login'
+import https from "https"
 import axios from 'axios'
-// import { Route } from 'react-router-dom'
-// import CanvasComponent from './components/DrawingCanvas'
-// import DrawingCanvas from './components/DrawingCanvas'
-// import { Login } from './components/Login'
-// import { SignUp } from './components/SignUp'
-import { Home } from './pages/Home/Home'
-import { PreLoader } from './components/PreLoader/PreLoader';
+// axios.defaults.httpsAgent = new https.Agent({
+//   rejectUnauthorized : false
+// });
 function App() {
+  
 
   const [loading, setLoading] = useState(true);
   const [categoryList,setCategoryList] = useState([])
@@ -37,31 +39,7 @@ function App() {
 
   return (
     <>
-    <div id="navbar" className="sticky">
-        <div>
-        Fair Fashion
-        </div>
-      </div>
-
-      {loading ? (
-        <PreLoader />
-      ) : (
-        // <Home />
-
-
-    <div className='category-container'>
-
-      {/* <SignUp/> */}
-
-      {
-        categoryList.map((category)=>(
-
-          <Home id={category.id} title1={category.title1} title2={category.title2} category_image={category.image} items={category.items}/>
-
-        ))
-
-      }
-
+      <Login/>
       {/* <Chat/> */}
     </div>
     

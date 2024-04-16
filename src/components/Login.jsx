@@ -9,8 +9,6 @@ export function Login(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error,setError] = useState('');
-    const [isLoading,setIsLoading] = useState(0);
-
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -30,10 +28,7 @@ export function Login(){
             
           };
 
-          setIsLoading(1);
-          const {data} = await axios.post('https://api-fb6o.onrender.com/user/login',{email,password},config);
-          setIsLoading(0);
-
+          const {data} = await axios.post('/api/user/login',{email,password},config);
           localStorage.setItem("userInfo", JSON.stringify(data));
           navigate("/join");
           console.log(data);
@@ -52,24 +47,14 @@ export function Login(){
     };
     
       return (
-        <div className="center" style={{height : '100vh'}}>
-          
-          {
-            isLoading ? <Snackbar
-            open={true}
-            autoHideDuration={600}
-            message={"Please wait,This might take a while....."}
-            /> : <></>
-          }
-
-
+        <>
         {error ? <Snackbar
         open={true}
         autoHideDuration={600}
         message={error}
         /> : <></> }
         
-        <form onSubmit={handleSubmit} className="card">
+        <form onSubmit={handleSubmit}>
 
           <TextField
             label="Email"
@@ -92,6 +77,6 @@ export function Login(){
           </Button>
           
         </form>
-        </div>
+        </>
       );
 }

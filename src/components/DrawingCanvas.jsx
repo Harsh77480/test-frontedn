@@ -18,8 +18,6 @@ class DrawingCanvas extends Component {
       socket : this.props.props1,
       mc : this.props.props2,
       screenWidth: window.innerWidth,
-      screenHeight : window.innerHeight
-
     }
     // const {socket} = this.state;
     // socket.emit("join room",{"roomCode" : "one","userData" : "user 123"});
@@ -78,7 +76,6 @@ class DrawingCanvas extends Component {
   handleResize = () => {
     // Update the state with the new screenWidth value
     this.setState({ screenWidth: window.innerWidth });
-    this.setState({ screenHeight: window.innerHeight });
     
     // console.log(this.);
   }
@@ -141,10 +138,8 @@ handleMouseUp = () => {
 handleTouchStart = (e) => {
   // Touch start event handling
   const { context } = this.state;
-  const { canvas } = this.state;
-
   context.beginPath();
-  context.moveTo(e.touches[0].clientX - canvas.getBoundingClientRect().left, e.touches[0].clientY - canvas.getBoundingClientRect().top);
+  context.moveTo(e.touches[0].clientX, e.touches[0].clientY);
   this.setState({ drawing: true });
 }
 
@@ -152,10 +147,8 @@ handleTouchStart = (e) => {
 handleTouchMove = (e) => {
   // Touch move event handling
   if (!this.state.drawing) return;
-  const { canvas } = this.state;
-
   const { context } = this.state;
-  context.lineTo(e.touches[0].clientX - canvas.getBoundingClientRect().left, e.touches[0].clientY - canvas.getBoundingClientRect().top);
+  context.lineTo(e.touches[0].clientX, e.touches[0].clientY);
   context.stroke();
 }
   
@@ -185,7 +178,6 @@ handleTouchEnd = () => {
 
   render() {
     const { screenWidth } = this.state;
-    const {screenHeight}  =this.state;
     // console.log(screenWidth);
 
     return (
@@ -194,13 +186,11 @@ handleTouchEnd = () => {
       <canvas
         className='canvas'
         ref={this.canvasRef}
-        width={screenWidth/1.2}
-        height={screenHeight/2}
-        style={{ borderRadius : '4px', boxShadow : '0 1px 4px rgba(0, 0, 0, 0.2)' , backgroundColor : 'white'  , position : 'static' }}  
+        width={screenWidth}
+        height={500}
+        style={{  border: '1px solid black' , position : 'static' }}  
       />
-      // background-color: white;
-      // border-radius: 4px;
-      // box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
 
     );
   }
