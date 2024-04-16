@@ -41,9 +41,7 @@ function App() {
     <>
       <Login/>
       {/* <Chat/> */}
-    </div>
     
-      )}
     </>
   )
 }

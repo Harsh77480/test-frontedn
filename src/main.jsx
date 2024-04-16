@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import { Join } from './pages/Join.jsx';
-import { PlayGround } from './pages/playGround.jsx';
+import { PlayGround } from './pages/PlayGround.jsx';
 import axios from 'axios';
 
 // import axios
