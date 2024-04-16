@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import { Route } from 'react-router-dom'
-import { Chat } from './pages/chat'
+import { Chat } from './pages/Chat'
 import CanvasComponent from './components/DrawingCanvas'
 import DrawingCanvas from './components/DrawingCanvas'
 import { Login } from './components/Login'
