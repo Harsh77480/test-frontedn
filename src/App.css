@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Great+Vibes&family=Lobster&family=Protest+Revolution&family=Rowdies:wght@300;400;700&family=Rubik+Glitch+Pop&family=Workbench:SCAN@8&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body{
+    background-color: rgb(206, 234, 255);
+  }
+
+  
+  .category-container{
+    margin-top: 45px;
+  }
+
+  /* nav bar  */
+  #navbar {
+    
+    font-size: 25px;
+    
+    /* font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+
+    /* font-family: "Workbench", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 8; */
+
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+
+      /* font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      font-style: normal; */
+
+      /* font-family: "Rowdies", sans-serif;
+      font-weight: 700;
+      font-style: normal; */
+
+      /* font-family: "Rubik Glitch Pop", system-ui;
+      font-weight: 400;
+      font-style: normal; */
+
+
+    color: rgb(33, 69, 91);
+    /* color: #f2f2f2; */
+
+    display: flex;align-items: center;justify-content: center;
+
+    height: 60px;
+
+    overflow: hidden;
+    /* background: rgba(246, 246, 246, 0.607); */
+    /* background: rgba(22, 22, 23, .8); */
+
+    z-index: 10;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );/* border-radius: 10px; */
+  }
+  
+  
+  
+  /* Navbar links */
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  

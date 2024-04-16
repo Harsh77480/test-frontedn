@@ -1,14 +1,14 @@
-body{
+/* body{
     background-color: gray;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
+} */
 
-.gameMessage{
+/* .gameMessage{
     color: rgb(75, 126, 128);
-}
+} */
 
 .input-field{
     height: 37px;
@@ -17,7 +17,6 @@ body{
     background: transparent;
     border: 1px gray solid;
     font-size: larger;
-    /* background-color: #800040; */
 }
 
 .center{
@@ -25,7 +24,7 @@ body{
     align-items: center;
     justify-content: center
 }
-.joinPage{
+/* .joinPage{
     height: 100vh;
     display: flex;
     align-items: center;
@@ -44,11 +43,6 @@ body{
 
 }
 
-.canvas{
-    /* border: solid; */
-    /* height: 600px; */
-    /* width: 400px; */
-}
 .canvas-container{
 
 
@@ -57,15 +51,12 @@ body{
     justify-content:center;
     align-items: center;
 
-    /* position: fixed; */
     height: 100vh;
     width: 100vw;
 }
 
 
 .notCanvas{
-    /* position: absolute; */
-    /* border: solid; */
     width :fit-content;
     max-width: 300px;
 }
@@ -82,7 +73,7 @@ body{
   h1, h2 {
     color: #333333;
   }
-  
+   */
   .btn {
     font: inherit;
     padding: 0.5rem 1.5rem;
@@ -91,7 +82,6 @@ body{
     background-color: #800040;
     color: white;
     border: 1px solid #800040;
-    /* margin: 1rem 1rem 1rem 0; */
   }
   
   .btn:hover {
@@ -103,6 +93,7 @@ body{
     background-color: transparent;
     color: #800040;
     line-height: 14px;
+    margin: 0 4px;
   
   }
   
@@ -110,7 +101,7 @@ body{
     background-color: #f8dae9;
   }
   
-  .card {
+  /* .card {
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -118,7 +109,7 @@ body{
     width: clamp(300px,70%,800px);
     margin: 5px 0;
     
-  } 
+  }  */
   .modal {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
@@ -160,15 +151,14 @@ body{
   }
   
   
-  .search-container {
+  /* .search-container {
     display: flex;
     width: 80%;
     justify-content: center;
     margin-bottom: 20px;
-  }
+  } */
   
   .filters{
-    /* background-color: #333333 ; */
     width: 50%; margin-top: 12px;
   }
   

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/* nav bar  */
+  #bottombar {
+    
+    font-size: 20px;
+    
+    /* font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+    font-style: normal; */
+
+    /* font-family: "Workbench", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 8; */
+
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+
+      /* font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      font-style: normal; */
+
+      /* font-family: "Rowdies", sans-serif;
+      font-weight: 300;
+      font-style: normal; */
+      /* font-family: 'Courier New', Courier, monospace; */
+
+      /* font-family: 'Roboto Condensed', sans-serif; */
+
+      font-family: 'Quicksand', sans-serif;
+
+    /* color: rgb(33, 69, 91); */
+    color: #f2f2f2;
+
+    display: flex;align-items: center;justify-content: center;
+
+    height: 60px;
+
+    overflow: hidden;
+    /* background: rgba(246, 246, 246, 0.607); */
+    /* background: rgba(22, 22, 23, 0.728); */
+    background: rgba(27, 27, 27, 0.728);
+
+    z-index: 10;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );/* border-radius: 10px; */
+  }
+  
+  .bottombarbox{
+    display: flex;
+    /* border: solid; */
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .bottombarbox-children-1{
+    /* border-left: 1px solid; */
+    /* border: solid; */
+    width: 50%;
+    height: 60px;
+    display: flex;align-items: center;justify-content: center;
+  }
+  .bottombarbox-children-2{
+    border-left: 1px solid;
+    /* border: solid; */
+    width: 50%;
+    height: 60px;
+    display: flex;align-items: center;justify-content: center;
+  }
+  
+  .hoverchange:hover {
+    background-color: #f2f2f2;
+    color: black;
+  }
+  /* bottombar links */
+  #bottombar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  
+  /* The sticky class is added to the bottombar with JS when it reaches its scroll position */
+  .bottom-sticky {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
