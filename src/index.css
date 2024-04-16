@@ -172,4 +172,12 @@ body{
     width: 50%; margin-top: 12px;
   }
   
-  
+  .card {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: clamp(300px,70%,800px);
+    margin: 5px 0;
+    
+  } 
